@@ -5,8 +5,8 @@ function showFriend(){
     ulAmigos.innerHTML = '';
     fetch('http://localhost:5000/amigos')
     .then(res => res.json())
-    .then(amigos => {
-        for (let i = 0; i < amigos.length; i++) {
+    .then(amigo => {
+        for (let i = 0; i < amigo.length; i++) {
             // let li = document.createElement('li')
                 let li = `<li>${amigos[i].name} <button onclick="deleteFriend(${amigos[i].id})">X</button> </li>`;
             // li.innerText = amigos[i].name;  
