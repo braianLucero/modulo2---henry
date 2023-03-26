@@ -10,7 +10,7 @@ export default class Animals extends React.Component {
     const { animals } = this.props;
     console.log({ animals });
     return (
-      <div>
+      <div className={styledAnimals.container}>
         {animals.map((animal, index) => {
           return (
             <div key={index}>
