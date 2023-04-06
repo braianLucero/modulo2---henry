@@ -17,11 +17,18 @@ export function deleteProduct(id) {
 }
 
 export function getStoreName() {
-  return function (dispatch) {
-    axios
-      .get("http://localhost:3001/store")
-      .then((response) => console.log(response));
+  // return function (dispatch) {
+  //   axios
+  //     .get("http://localhost:3001/store")
+  //     .then((response) => {
+  //       dispatch({ type: GET_STORE_NAME, payload: response.data.name });
+  //     })
+  //     .catch((error) => console.log(error));
+  // };
+
+  return async function (dispatch) {
+    let response = await axios.get("http://localhost:3001/store");
     /*Aquí es donde agregas tu código*/
-    return dispatch({ type: GET_STORE_NAME, payload: null });
+    return dispatch({ type: GET_STORE_NAME, payload: response.data.name });
   };
 }
