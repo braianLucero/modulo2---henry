@@ -13,7 +13,14 @@ export function Products({ list, storeName, getStoreName }) {
       <div className="productsBg">
         <h1 className="productsTl">{storeName}</h1>
         <div className="productsList">
-          {/* ¡Renderiza aquí todas tus cards! */}
+          {list.map((prod) => (
+            <Card
+              name={prod.name}
+              price={prod.price}
+              id={prod.id}
+              key={prod.id}
+            />
+          ))}
         </div>
       </div>
     </>
