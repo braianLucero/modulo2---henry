@@ -7,9 +7,9 @@ export class Card extends React.Component {
   constructor(props) {
     super(props);
   }
-  handleDelete() {
+  handleDelete = () => {
     this.props.deleteProduct(this.props.id);
-  }
+  };
   render() {
     return (
       <div className="cardBg">
