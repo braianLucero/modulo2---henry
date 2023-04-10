@@ -1,15 +1,23 @@
 import React from "react";
-
+import { useDispatch } from "react-redux";
+import { enviarForm } from "../../redux/actions/actions";
 const ContactUs = () => {
+  const dispatch = useDispatch();
+
   const [form, setForm] = React.useState({
     nombre: "",
     email: "",
     asunto: "",
     mensaje: "",
   });
+  console.log(form);
 
   function handleInput(evento) {
     setForm({ ...form, [evento.target.name]: evento.target.value });
+  }
+
+  function handleSubmit() {
+    dispatch(enviarForm(form));
   }
   return (
     <div>
