@@ -10,11 +10,10 @@ const ContactUs = () => {
     asunto: "",
     mensaje: "",
   });
-  console.log(form);
 
-  function handleInput(evento) {
+  const handleInput = (evento) => {
     setForm({ ...form, [evento.target.name]: evento.target.value });
-  }
+  };
 
   const handleSubmit = () => {
     dispatch(enviarForm(form));
@@ -26,18 +25,16 @@ const ContactUs = () => {
     });
   };
   return (
-    <div>
-      <form className="contactBg" onSubmit={handleSubmit}>
-        <label htmlFor="nombre">Nombre: </label>
-        <input name="nombre" value={form.nombre} onChange={handleInput} />
-        <label htmlFor="email">Email: </label>
-        <input name="email" value={form.email} onChange={handleInput} />
-        <label htmlFor="asunto">Asunto: </label>
-        <input name="asunto" value={form.asunto} onChange={handleInput} />
-        <label htmlFor="mensaje">Mensaje: </label>
-        <input name="mensaje" value={form.mensaje} onChange={handleInput} />
-        <button type="submit">Enviar</button>
-      </form>
+    <div className="contactBg">
+      <label htmlFor="nombre">Nombre: </label>
+      <input name="nombre" value={form.nombre} onChange={handleInput} />
+      <label htmlFor="email">Email: </label>
+      <input name="email" value={form.email} onChange={handleInput} />
+      <label htmlFor="asunto">Asunto: </label>
+      <input name="asunto" value={form.asunto} onChange={handleInput} />
+      <label htmlFor="mensaje">Mensaje: </label>
+      <input name="mensaje" value={form.mensaje} onChange={handleInput} />
+      <button onClick={handleSubmit}>Enviar</button>
     </div>
   );
 };
