@@ -16,12 +16,18 @@ const ContactUs = () => {
     setForm({ ...form, [evento.target.name]: evento.target.value });
   }
 
-  function handleSubmit() {
+  const handleSubmit = () => {
     dispatch(enviarForm(form));
-  }
+    setForm({
+      nombre: "",
+      email: "",
+      asunto: "",
+      mensaje: "",
+    });
+  };
   return (
     <div>
-      <form className="contactBg">
+      <form className="contactBg" onSubmit={handleSubmit}>
         <label htmlFor="nombre">Nombre: </label>
         <input name="nombre" value={form.nombre} onChange={handleInput} />
         <label htmlFor="email">Email: </label>
@@ -30,7 +36,7 @@ const ContactUs = () => {
         <input name="asunto" value={form.asunto} onChange={handleInput} />
         <label htmlFor="mensaje">Mensaje: </label>
         <input name="mensaje" value={form.mensaje} onChange={handleInput} />
-        <button>Enviar</button>
+        <button type="submit">Enviar</button>
       </form>
     </div>
   );
